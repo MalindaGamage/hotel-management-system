@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "staff")
@@ -65,7 +64,7 @@ public class Staff extends BaseEntity implements UserDetails {
     @Override public boolean isAccountNonExpired()  { return true; }
     @Override public boolean isAccountNonLocked()   { return isActive; }
     @Override public boolean isCredentialsNonExpired() { return true; }
-    @Override public boolean isEnabled() { return isActive && deletedAt == null; }
+    @Override public boolean isEnabled() { return isActive && getDeletedAt() == null; }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

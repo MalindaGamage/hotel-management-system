@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { store } from '../store'
-import { refreshAccessToken, logoutUser, selectAccessToken } from '../store/slices/authSlice'
+import { refreshAccessToken, logoutUser } from '../store/slices/authSlice'
 
 const apiClient = axios.create({
   baseURL: '/api/v1',
@@ -8,9 +7,14 @@ const apiClient = axios.create({
   timeout: 15000,
 })
 
+// Store injected from main.jsx after Redux store is created — breaks the circular:
+// store/index.js → authSlice → authApi → axios → store (would be circular at init time)
+let _store = null
+export const injectStore = (store) => { _store = store }
+
 // Attach Authorization header from Redux store
 apiClient.interceptors.request.use((config) => {
-  const token = store.getState().auth.accessToken
+  const token = _store?.getState().auth.accessToken
   if (token) config.headers.Authorization = `Bearer ${token}`
   return config
 })
@@ -43,7 +47,7 @@ apiClient.interceptors.response.use(
       isRefreshing = true
 
       try {
-        const result = await store.dispatch(refreshAccessToken())
+        const result = await _store.dispatch(refreshAccessToken())
         if (refreshAccessToken.fulfilled.match(result)) {
           const newToken = result.payload.accessToken
           processQueue(null, newToken)
@@ -51,12 +55,12 @@ apiClient.interceptors.response.use(
           return apiClient(original)
         } else {
           processQueue(error)
-          store.dispatch(logoutUser())
+          _store.dispatch(logoutUser())
           window.location.href = '/login'
         }
       } catch (refreshError) {
         processQueue(refreshError)
-        store.dispatch(logoutUser())
+        _store?.dispatch(logoutUser())
         window.location.href = '/login'
       } finally {
         isRefreshing = false

@@ -50,7 +50,7 @@ public class Hotel extends BaseEntity {
     private String email;
 
     @Min(1) @Max(5)
-    @Column(name = "star_rating", nullable = false)
+    @Column(name = "star_rating", nullable = false, columnDefinition = "TINYINT")
     private int starRating = 3;
 
     @Column(columnDefinition = "TEXT")

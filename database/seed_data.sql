@@ -99,13 +99,13 @@ VALUES
 (3, 1, 'Deluxe Suite',
  'Elegant suite with separate living area and ocean-view balcony.',
  3, 299.00,
- '["Free WiFi","Air Conditioning","55\" Smart TV","Full Bar","In-room Dining","Jacuzzi","Balcony","Butler Service","Nespresso Machine"]',
+ '["Free WiFi","Air Conditioning","55-inch Smart TV","Full Bar","In-room Dining","Jacuzzi","Balcony","Butler Service","Nespresso Machine"]',
  '["/images/rooms/deluxe-suite-1.jpg","/images/rooms/deluxe-suite-2.jpg"]'),
 
 (4, 1, 'Presidential Suite',
  'Our most exclusive offering — panoramic ocean views, private terrace, and dedicated butler.',
  6, 999.00,
- '["Free WiFi","Air Conditioning","75\" Smart TV","Full Bar","Private Kitchen","Jacuzzi","Private Terrace","24/7 Butler","Rolls-Royce Transfer","Private Pool Access"]',
+ '["Free WiFi","Air Conditioning","75-inch Smart TV","Full Bar","Private Kitchen","Jacuzzi","Private Terrace","24/7 Butler","Rolls-Royce Transfer","Private Pool Access"]',
  '["/images/rooms/presidential-1.jpg","/images/rooms/presidential-2.jpg"]');
 
 -- -----------------------------------------------------------------------------
@@ -137,13 +137,13 @@ INSERT INTO rooms (hotel_id, room_type_id, room_number, floor, status) VALUES
 INSERT INTO staff (hotel_id, role_id, first_name, last_name, email, password_hash, phone, is_active)
 VALUES
 (1, 1, 'Admin',    'User',      'admin@grandhorizon.com',
- '$2a$12$LN9y.OWnAFGaFmWJT8WLcOz5./8O.WE6v6PRoSv4b5xVbC9s/FRSi',
+ '$2b$12$p5C7GQeZt5PsVrEVB1IVAuA5td5H6IRUjKkcnUy4cEIHKm74aWMqq',
  '+1-305-555-0001', 1),
 (1, 2, 'Sarah',    'Johnson',   'sarah.johnson@grandhorizon.com',
- '$2a$12$LN9y.OWnAFGaFmWJT8WLcOz5./8O.WE6v6PRoSv4b5xVbC9s/FRSi',
+ '$2b$12$p5C7GQeZt5PsVrEVB1IVAuA5td5H6IRUjKkcnUy4cEIHKm74aWMqq',
  '+1-305-555-0002', 1),
 (1, 3, 'Miguel',   'Rodriguez', 'miguel.r@grandhorizon.com',
- '$2a$12$LN9y.OWnAFGaFmWJT8WLcOz5./8O.WE6v6PRoSv4b5xVbC9s/FRSi',
+ '$2b$12$p5C7GQeZt5PsVrEVB1IVAuA5td5H6IRUjKkcnUy4cEIHKm74aWMqq',
  '+1-305-555-0003', 1);
 
 -- -----------------------------------------------------------------------------
