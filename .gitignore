@@ -1,0 +1,31 @@
+# Java
+*.class
+*.jar
+*.war
+target/
+.mvn/
+hotel-backend/.mvn/
+
+# RSA keys — NEVER commit
+hotel-backend/src/main/resources/keys/private.pem
+hotel-backend/src/main/resources/keys/public.pem
+hotel-backend/src/main/resources/keys/private_raw.pem
+
+# Environment
+.env
+*.env.local
+
+# Node
+node_modules/
+hotel-frontend/dist/
+hotel-frontend/.vite/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

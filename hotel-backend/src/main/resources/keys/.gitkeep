@@ -1,0 +1,8 @@
+# Place RSA key files here (DO NOT commit actual keys to version control):
+#   private.pem  — PKCS#8 RSA private key (for signing JWTs)
+#   public.pem   — X.509 RSA public key  (for verifying JWTs)
+#
+# Generate with OpenSSL:
+#   openssl genrsa -out private_raw.pem 2048
+#   openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in private_raw.pem -out private.pem
+#   openssl rsa -in private_raw.pem -pubout -out public.pem
